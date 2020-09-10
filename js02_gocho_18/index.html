@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <title>Memo pad</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="date"></div>
+    <h3>Memopad</h3>
+  <form>
+
+
+
+    <div>
+      <input type="hidden" name="Time" id="Time">
+      <label>Title:<br/>
+       
+        <input type="text" id="subject" size="30" required placeholder="Add to Title"><i id="save" class="fas fa-plus-circle fa-2x"></i></label>
+      </div>
+    <div class="field">
+      <label>Memo:</br>
+       <textarea id="memo" cols="30" rows="40" required placeholder="Add to Detail"></textarea></label>
+      </div>
+      <div class="field">
+       
+        <!-- <input id="save" type="submit" class="btn" value="Save"><br> -->
+        
+  </form>
+ 
+  <table id="list">
+<!-- ダミー -->
+<tr>
+  <th>宿題</th>
+  <td>JS</td>
+  <td><i id="check" class="far fa-check-circle"></i><i id="bin" class="fas fa-trash-alt"></i></td>
+</tr>
+<tr>
+  <th>買い物</th>
+  <td>にんじん</td>
+  <td><i id="check" class="far fa-check-circle"></i><i id="bin" class="fas fa-trash-alt"></i></td>
+</tr>
+  </table>
+  <form>
+    <input id="clear" type="reset" class="btn" value="All Clear"></div>
+  </form>
+</div>
+  <script>
+    // save
+    $("#save").on("click", function(){
+      const key = $("#subject").val();
+      const value =$("#memo").val();
+
+  
+      if ("#subject" == '') {
+        // 入力値が空の場合、処理を中断
+        return;
+    };
+      localStorage.setItem(key,value);
+    const html ='<tr><th>'+key+'</th><td>'+value+'</td><td><i id="check" class="far fa-check-circle"></i><i id="bin" class="fas fa-trash-alt"></i></td></tr>';
+    // const html ='<tr>'+'<i id="check" class="far fa-check-circle"></i>'+'<th>'+key+'</th><td>'+value+'</td></tr>'+'<i class="fas fa-trash-alt"></i>';
+    $("#list").append(html);
+    // alert("ok");
+    
+    });
+
+
+    // All clear
+    $("#clear").on("click", function(){
+      localStorage.clear();
+      $("#list").empty();
+    });
+
+    // delete
+    $("#bin").on("click", function(){
+    localStorage.removeItem("this");
+    alert("ok");
+    });
+
+    // ページ読み込み
+    for(let i=0; i<localStorage.length; i++){
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+    // const html ='<tr><th>'+key+'</th><td>'+value+'</td><td><input id="clear" type="reset" class="btn" value="Clear"></td></tr>';
+
+    const html ='<tr><th>'+key+'</th><td>'+value+'</td><td><i id="check" class="far fa-check-circle"></i><i id="bin" class="fas fa-trash-alt"></i></td></tr>';
+    $("#list").append(html);
+    };
+
+    // checkボタンを押した時
+    $("#check").on("click", function(){
+    $("#list").wrap("<strike>");
+    });
+
+    // 日付
+    window.onload = ()=>{
+    const dateBox = document = document.querySelector('.date');
+    const date = new Date();
+    const day = date.getDate();
+    console.log(day);
+    const month = date.getMonth()+1;
+    console.log(month);
+    const year = date.getFullYear();
+    console.log(year);
+
+    dateBox.innerHTML  = 'Date:<span>'+day+ '-' +month+ '-' +year+ '</span>';
+  };
+
+  </script>
+</body>
+</html>

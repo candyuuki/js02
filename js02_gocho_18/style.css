@@ -1,0 +1,125 @@
+* {
+margin: auto;
+  padding: auto;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1589307004173-3c95204d00ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#list a {
+  color: black;
+  text-decoration: none;
+}
+
+input, textarea {
+  border-width: 1px;
+  border-style: solid;
+  background-color: white;
+  color: black;
+  width: 81%;
+  height: 44px;
+}
+
+.btnmenu {
+  margin: 5px;
+  padding: 5px;
+  color: black;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+}
+
+#list {
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: white;
+}
+
+
+textarea {
+  height: 81px;
+}
+
+table {
+  margin-left: 0;
+  margin-top: 20px;
+  width:81%;
+  
+}
+
+th{
+  width:10%;
+  /* font-size:24px; */
+  background-color:#ffc0cb;
+ 
+}
+td{
+  width: 22%;
+  background-color:rgb(241, 239, 239);
+  border-bottom: 1px solid #db7093;
+  
+}
+
+ #save.fa-plus-circle {
+  width: 32px;
+  height: 32px;
+ padding-left: 10px;
+
+}
+
+/* 日付 */
+.date {
+text-align: right;
+top: 5%;
+font-size: 15px;
+
+}
+h3 {
+  margin-left: 350px;
+  font-size: 32px;
+}
+
+#subject {
+  margin-left: 10px;
+}
+#memo{
+  margin-left: 10px;
+}
+table {
+  margin-left: 10px;
+}
+
+#clear {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+#clear:hover {
+  color: #db7093;
+}
+
+#check:hover {
+color: #db7093;
+}
+
+#bin:hover{
+  color: #da70d6;
+}
+
+#save:hover {
+  color: #da70d6;
+}
